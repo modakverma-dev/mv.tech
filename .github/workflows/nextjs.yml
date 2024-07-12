@@ -1,15 +1,10 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages
-#
-# To get started with Next.js see: https://nextjs.org/docs/getting-started
-#
+
 name: Deploy MV.Tech to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -56,11 +51,9 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
+        env:
+          ACTIONS_STEP_DEBUG: true
       - name: Restore cache
         uses: actions/cache@v4
         with:

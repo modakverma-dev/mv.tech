@@ -14,7 +14,7 @@ const BlogLayoutTwo = ({ blog }) => {
           alt={blog?.title}
           width={blog.image.width}
           height={blog.image.height}
-          className="aspect-[4/3] w-full h-full object-cover object-center hover:scale-125 transition-all duration-300"
+          className="aspect-[3/2] w-full h-full object-cover object-center hover:scale-125 transition-all duration-300"
         />
       </Link>
       <div className="flex w-full flex-wrap gap-1 mt-2">
