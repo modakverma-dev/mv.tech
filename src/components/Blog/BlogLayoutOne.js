@@ -50,7 +50,7 @@ const BlogLayoutOne = ({ blog, count }) => {
             </div>
             <Link href={blog?.url} className="mt-6">
               <h1 className="font-medium capitalize text-xl my-3">
-                <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_3px] hover:bg-[length:100%_3px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
+                <span className="bg-gradient-to-r from-slate-100/50 to-slate-100/40 bg-[length:0px_2px] hover:bg-[length:100%_2px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
                   {blog?.title}
                 </span>
               </h1>

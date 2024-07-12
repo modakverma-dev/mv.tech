@@ -23,17 +23,22 @@ const Header = () => {
     window.addEventListener("scroll", changeBackground);
   }
   return (
-    <header className="w-full bg-purple-400/30 backdrop-blur-sm border-b-2 border-pink-200/20 px-10 flex items-center justify-between fixed top-0 lef-0 right-0 z-40 dark:text-white">
+    <header
+      className={cx(
+        "w-full  px-10 flex items-center justify-between fixed top-0 lef-0 right-0 z-40 bg-transparent",
+        nav ? "text-black shadow-lg" : "text-white"
+      )}
+    >
       {/* scroll bg-animation */}
       <div
         className={cx(
-          nav && "opacity-100 shadow-purple-300/20 shadow-lg",
-          "opacity-0 transition duration-300 absolute inset-0 w-full h-full dark:bg-dark bg-white z-10"
+          nav && "opacity-100 border-slate-200/20 border-[1px]",
+          "opacity-0 transition duration-300 absolute inset-0 w-full h-full bg-white z-10"
         )}
       />
       {/*  */}
       <div className="z-20 flex w-full items-center justify-between ">
-        <Logo />
+        <Logo nav={nav} />
         <nav className="w-max py-3 px-8 flex items-center font-medium capitalize gap-2">
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>

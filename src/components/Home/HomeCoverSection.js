@@ -11,7 +11,7 @@ const HomeCoverSection = ({ blogs }) => {
   const shortedBlogs = shortBlogs(blogs);
   const blog = shortedBlogs[0];
   return (
-    <Container className="w-full inline-block pt-10">
+    <Container className="w-full inline-block ">
       <article className="flex flex-col items-start justify-end relative h-[85vh]">
         <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent from-0% to-dark/80 z-0 " />
         <Image
@@ -28,7 +28,7 @@ const HomeCoverSection = ({ blogs }) => {
           ))}
           <Link href={blog?.url} className="mt-6">
             <h1 className="font-bold capitalize text-4xl my-3">
-              <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_3px] hover:bg-[length:100%_3px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
+              <span className="bg-gradient-to-r from-slate-100/70 to-slate-100/70 bg-[length:0px_3px] hover:bg-[length:100%_3px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
                 {blog?.title}
               </span>
             </h1>

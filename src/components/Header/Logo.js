@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import profileImg from "@/public/profile.jpg";
+import { cx } from "@/src/utils";
 
-const Logo = () => {
+const Logo = ({ nav }) => {
   return (
     <Link
       href="/"
@@ -18,7 +19,14 @@ const Logo = () => {
           className="rounded-full object-cover h-auto w-full"
         />
       </div>
-      <span className="font-bold text-xl mix-blend-multiply">MV.TECH</span>
+      <span
+        className={cx(
+          "font-bold text-xl mix-blend-multiply",
+          nav ? "text-black" : "text-white"
+        )}
+      >
+        MV.TECH
+      </span>
     </Link>
   );
 };

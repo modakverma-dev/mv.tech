@@ -6,7 +6,10 @@ import React from "react";
 const BlogLayoutTwo = ({ blog }) => {
   return (
     <div className="flex flex-col items-center">
-      <Link href={blog?.url} className="h-full roundex-md overflow-hidden">
+      <Link
+        href={blog?.url}
+        className="h-full roundex-md overflow-hidden border-2 border-black rounded-xl hover:rounded-none transition-all ease duration-700 delay-200 "
+      >
         <Image
           src={blog?.image.filePath.replace("../public", "")}
           placeholder="blur"
@@ -14,13 +17,13 @@ const BlogLayoutTwo = ({ blog }) => {
           alt={blog?.title}
           width={blog.image.width}
           height={blog.image.height}
-          className="aspect-[3/2] w-full h-full object-cover object-center hover:scale-125 transition-all duration-300"
+          className="aspect-[3/2] w-full h-full object-cover object-center hover:scale-125 transition-all ease duration-500 delay-200 "
         />
       </Link>
       <div className="flex w-full flex-wrap gap-1 mt-2">
         {blog?.tags?.map((tag) => (
           <span
-            className="text-accent uppercase tex-sm rounded-md px-1 text-semibold bg-purple-500/30 border-2 border-purple-500/40"
+            className="text-slate-700 uppercase text-sm rounded-md px-1 text-bold bg-white border-[2px] border-black"
             key={tag}
           >
             {tag}
