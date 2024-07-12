@@ -4,7 +4,8 @@ const { withContentlayer } = require("next-contentlayer");
 
 const isProd = process.env.NODE_ENV === "production";
 
-module.exports = {
+const nextConfig = {
+  output: "export",
   basePath: isProd ? "/MV.Tech" : "",
   assetPrefix: isProd ? "/MV.Tech/" : "",
   trailingSlash: true,
