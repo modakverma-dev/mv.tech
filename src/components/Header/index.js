@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Link from "next/link";
 import { cx } from "@/src/utils";
@@ -22,6 +22,21 @@ const Header = () => {
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", changeBackground);
   }
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const scrollTotal =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const scrollProgress = (window.scrollY / scrollTotal) * 100;
+    setScrollPosition(scrollProgress);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <header
       className={cx(
@@ -35,12 +50,18 @@ const Header = () => {
           nav && "opacity-100 border-slate-200/20 border-[1px]",
           "opacity-0 transition duration-300 absolute inset-0 w-full h-full bg-white z-10"
         )}
-      />
+      >
+        <div
+          className="h-[4px] -top-[2px] bg-black absolute"
+          style={{ width: `${scrollPosition}%` }}
+        ></div>
+      </div>
       {/*  */}
       <div className="z-20 flex w-full items-center justify-between ">
         <Logo nav={nav} />
-        <nav className="w-max py-3 px-8 flex items-center font-medium capitalize gap-2">
+        <nav className="w-max py-3 px-8 flex items-center font-medium capitalize gap-4">
           <Link href="/">Home</Link>
+          <Link href="/categories/all">Categories</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
           <button>

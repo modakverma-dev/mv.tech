@@ -2,8 +2,14 @@ import { allBlogs } from "@/.contentlayer/generated";
 import BlogDetails from "@/src/components/Blog/BlogDetails";
 import RenderMdx from "@/src/components/Blog/RenderMdx";
 import Tag from "@/src/components/Elements/Tag";
+import GithubSlugger, { slug } from "github-slugger";
 import Image from "next/image";
 import React from "react";
+
+const slugger = new GithubSlugger();
+export async function generateStaticParams() {
+  return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
+}
 
 const BlogPage = ({ params }) => {
   const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
@@ -12,8 +18,8 @@ const BlogPage = ({ params }) => {
       <div className="relative text-center mb-8 w-full h-[70vh] bg-dark">
         <div className="w-full z-10 flex flex-col items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <Tag
-            name={blog.tags[0]}
-            link={`/categories/${blog.tags[0]}`}
+            name={slug(blog.tags[0])}
+            link={`/categories/${slug(blog.tags[0])}`}
             className="px-6 text-sm py-2"
           />
           <h1 className="inline-block mt-6 font-normal capitalize text-light leading-normal relative w-5/6 text-4xl">
@@ -24,7 +30,7 @@ const BlogPage = ({ params }) => {
         <Image
           src={blog?.image?.filePath.replace("../public", "")}
           placeholder="blur"
-          blurDataURL={blog?.image?.blurhashDataUrl}
+          blurDataURL={blog?.image?.blurhashDataUrl || ""}
           alt={blog?.title}
           width={blog?.image?.width}
           height={blog?.image?.height}

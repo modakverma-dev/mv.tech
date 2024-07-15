@@ -18,6 +18,8 @@ module.exports = {
       fontFamily: {
         man: ["var(--font-man)"],
         in: ["var(--font-in)"],
+        playwrite: ["Playwrite PE", "cursive"],
+        dosis: ["Dosis", "sans-serif"],
       },
     },
   },

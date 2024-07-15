@@ -58,7 +58,7 @@ const Blog = defineDocumentType(() => ({
         const regularExp = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
         const headings = Array.from(doc.body.raw.matchAll(regularExp))?.map(
           ({ groups }) => {
-            const flag = groups?.flags;
+            const flag = groups?.flag;
             const content = groups?.content;
             return {
               level:
@@ -79,7 +79,6 @@ const codeOptions = {
 };
 
 export default makeSource({
-  /* options */
   contentDirPath: "content",
   documentTypes: [Blog],
   mdx: {

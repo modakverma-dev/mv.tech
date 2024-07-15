@@ -4,6 +4,7 @@ import React from "react";
 import Tag from "../Elements/Tag";
 import { format } from "date-fns";
 import { motion, AnimatePresence } from "framer-motion";
+import { slug } from "github-slugger";
 
 const BlogLayoutOne = ({ blog, count }) => {
   return (
@@ -31,7 +32,7 @@ const BlogLayoutOne = ({ blog, count }) => {
           <Image
             src={blog?.image?.filePath?.replace("../public", "")}
             placeholder="blur"
-            blurDataURL={blog?.image?.blurhashDataUrl}
+            blurDataURL={blog?.image?.blurhashDataUrl || ""}
             alt={blog?.title}
             width={blog.image.width}
             height={blog.image.height}
@@ -42,7 +43,7 @@ const BlogLayoutOne = ({ blog, count }) => {
               {blog?.tags?.map((tag) => (
                 <Tag
                   key={tag}
-                  link={`/categories/${tag}`}
+                  link={`/categories/${slug(tag)}`}
                   name={tag}
                   className="!py-1 px-2"
                 />
@@ -58,6 +59,9 @@ const BlogLayoutOne = ({ blog, count }) => {
             <span className="text-slate-200/80 text-sm font-light">
               {format(new Date(blog?.publishedAt), "MMMM dd, yyyy")}
             </span>
+            <p className="font-light text-sm text-slate-100">
+              <span>Author:</span> {blog?.author}
+            </p>
           </div>
         </motion.div>
       </div>
