@@ -59,7 +59,7 @@ const FeaturedPosts = ({ blogs }) => {
         <h1 className="w-full inline-block font-semibold capitalize text-4xl font-playwrite">
           Featured Posts
         </h1>
-        <div className="grid grid-cols-2 grid-rows-2 gap-1 md:gap-5 mt-8 h-screen w-full">
+        <div className="grid grid-cols-2 grid-rows-2 gap-1 md:gap-6 mt-8 h-[90vh] w-full">
           <article className="col-span-1 row-span-2 rounded-md overflow-hidden w-full h-full ">
             <BlogLayoutOne count={count} blog={sortedBlogs[count]} />
           </article>
