@@ -7,14 +7,11 @@ import Image from "next/image";
 import siteLink from "@/public/siteLink.gif";
 
 const ProjectsSection = ({ projects }) => {
-  console.log(projects, "projects");
   const sortedRepos = projects.sort(
     (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
   );
   return (
-    <div className="p-10 pb-0 flex flex-col relative">
-      <div className="w-[350px] h-[300px] rotate-65 bg-blue-300/30 absolute blur-3xl rounded-full " />
-      <div className="w-[750px] h-[500px] rotate-65 bg-purple-300/20 absolute blur-2xl -right-60 rounded-full -bottom-20  " />
+    <div className="bg-white p-10 pb-0 flex flex-col relative w-screen overflow-hidden">
       <h1 className="font-playwrite text-4xl font-semibold text-center">
         Fun Projects
       </h1>
@@ -48,13 +45,13 @@ const ProjectsSection = ({ projects }) => {
                     />
                   </Link>
                 )}
-                {proj?.git_url && (
+                {proj?.html_url && (
                   <Link
                     target="_blank"
-                    className="bg-slate-200/40 px-2 py-1 border-2 rounded-md border-slate-200/50 shadow-lg focus:scale-110 transition-all"
-                    href={proj?.git_url}
+                    className="bg-slate-200/40 px-2 py-1 border-2 rounded-md border-slate-200/50 shadow-lg focus:scale-110 transition-all w-[40px] h-[34px]"
+                    href={proj?.html_url}
                   >
-                    <GithubIcon className="w-[24px] h-[24px]" />
+                    <GithubIcon className="w-[20px] h-[20px]" />
                   </Link>
                 )}
               </div>

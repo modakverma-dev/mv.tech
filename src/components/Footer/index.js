@@ -1,10 +1,13 @@
-import Link from "next/link";
+"use client";
 import React from "react";
 import { TwitterIcon } from "../Icons/Twitter";
 import { GithubIcon } from "../Icons/Github";
 import LinkedInIcon from "../Icons/LinkedIn";
 
 const Footer = () => {
+  const handleSubmit = () => {
+    // handle Subscribe
+  };
   return (
     <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8 bg-black flex flex-col items-center">
       <div className="max-w-7xl mx-auto text-center">
@@ -65,26 +68,29 @@ const Footer = () => {
         </div>
 
         <div className="flex w-full items-center gap-2 justify-center mb-8">
-          <div className="bg-slate-300/20 border-[1.5px] border-slate-200/20 p-2 rounded-md cursor-pointer">
-            <TwitterIcon className="w-5 h-5" />
+          <div className="bg-slate-300/20 border-[1.5px] border-slate-200/20 p-2 rounded-md cursor-pointer w-10 h-10">
+            <TwitterIcon className="w-4 h-4" />
           </div>
-          <div className="bg-slate-300/20 border-[1.5px] border-slate-200/20 p-2 rounded-md cursor-pointer">
-            <GithubIcon className="w-5 h-5" />
+          <div className="bg-slate-300/20 border-[1.5px] border-slate-200/20 p-2 rounded-md cursor-pointer w-10 h-10">
+            <GithubIcon className="w-4 h-4" />
           </div>
-          <div className="bg-slate-300/20 border-[1.5px] border-slate-200/20 p-2 rounded-md cursor-pointer">
-            <LinkedInIcon className="w-5 h-5" />
+          <div className="bg-slate-300/20 border-[1.5px] border-slate-200/20 p-2 rounded-md cursor-pointer w-10 h-10">
+            <LinkedInIcon className="w-4 h-4" />
           </div>
         </div>
 
-        <form className="flex flex-col sm:flex-row justify-center items-center">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col sm:flex-row justify-center items-center"
+        >
           <input
             type="email"
             placeholder="enter your email"
-            className="w-full sm:w-auto px-4 py-1 bg-transparent border-white border focus:outline-none focus:ring-2 font-light text-sm bg rounded-s-sm"
+            className="w-full sm:w-auto px-4 py-1 bg-transparent border-slate-600 border focus:outline-none focus:ring-0 font-light text-sm bg rounded-s-sm"
           />
           <button
             type="submit"
-            className="w-full sm:w-auto bg-white px-4 rounded-e-sm border-white border py-1 transition duration-200 ease-in-out text-black text-sm hover:bg-black hover:text-white"
+            className="w-full sm:w-auto bg-white px-4 rounded-e-sm border-white border py-1 transition duration-200 ease-in-out text-black text-sm hover:bg-slate-200"
           >
             Subscribe
           </button>

@@ -4,6 +4,7 @@ import { Inter, Manrope } from "next/font/google";
 import Header from "@/src/components/Header";
 import Footer from "../components/Footer";
 import ScrollToTopButton from "../components/Elements/ScrollToTop";
+import StoreProvider from "../redux/provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,10 +28,12 @@ export default function RootLayout({ children }) {
       <body
         className={cx(inter.variable, manrope.variable, "font-dosis bg-light ")}
       >
-        <Header />
-        {children}
-        <ScrollToTopButton />
-        <Footer />
+        <StoreProvider>
+          <Header />
+          {children}
+          <ScrollToTopButton />
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );

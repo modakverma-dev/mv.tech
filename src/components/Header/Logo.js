@@ -10,7 +10,7 @@ const Logo = ({ nav }) => {
       href="/"
       className="flex items-center text-dark dark:text-white gap-2"
     >
-      <div className="w-11 h-11 rounded-full overflow-hidden border border-solid border-dark">
+      <div className="w-10 h-10 rounded-full overflow-hidden border border-solid border-dark">
         <Image
           src={profileImg}
           width={250}

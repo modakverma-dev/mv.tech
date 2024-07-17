@@ -8,8 +8,12 @@ import { TwitterIcon } from "../Icons/Twitter";
 import { GithubIcon } from "../Icons/Github";
 import { DribbbleIcon } from "../Icons/Medium";
 import { SunIcon } from "../Icons/SunIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { setAuthForm } from "@/src/redux/slice/formSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const {} = useSelector((state) => state.formSlice.showAuthForm);
   const [nav, setNav] = useState(false);
   const changeBackground = () => {
     if (window.scrollY >= 40) {
@@ -37,6 +41,10 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleShowAuthModal = () => {
+    dispatch(setAuthForm(true));
+  };
   return (
     <header
       className={cx(
@@ -60,10 +68,36 @@ const Header = () => {
       <div className="z-20 flex w-full items-center justify-between ">
         <Logo nav={nav} />
         <nav className="w-max py-3 px-8 flex items-center font-medium capitalize gap-4">
-          <Link href="/">Home</Link>
-          <Link href="/categories/all">Categories</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
+          <Link
+            className="hover:scale-105 hover:translate-y-[1px] transition"
+            href="/"
+          >
+            Home
+          </Link>
+          <Link
+            className="hover:scale-105 hover:translate-y-[1px] transition"
+            href="/categories/all"
+          >
+            Categories
+          </Link>
+          <button
+            className="hover:scale-105 hover:translate-y-[1px] transition"
+            onClick={handleShowAuthModal}
+          >
+            Subscribe
+          </button>
+          <Link
+            className="hover:scale-105 hover:translate-y-[1px] transition"
+            href="/about"
+          >
+            About
+          </Link>
+          <Link
+            className="hover:scale-105 hover:translate-y-[1px] transition"
+            href="/contact"
+          >
+            Contact
+          </Link>
           <button>
             <SunIcon />
           </button>

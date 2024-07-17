@@ -7,7 +7,7 @@ import BlogLayoutTwo from "../Blog/BlogLayoutTwo";
 const RecentPosts = ({ blogs }) => {
   const sortedBlogs = shortBlogs(blogs);
   return (
-    <section className="w-full mt-20 px-32 flex flex-col items-center justify-center bg-slate-300/30 py-6 ">
+    <section className="h-full w-full mt-20 px-32 flex flex-col items-center justify-center bg-[#EDF7FA] py-6 relative">
       <div className="flex w-full justify-between items-center">
         <h2 className="inline-block font-bold capitalize text-4xl font-playwrite">
           Recent Posts

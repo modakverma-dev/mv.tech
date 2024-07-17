@@ -20,7 +20,7 @@ const FeaturedPosts = ({ blogs }) => {
   }, [sortedBlogs.length]);
 
   return (
-    <div className="relative overflow-x-clip w-screen flex justify-center">
+    <div className="bg-white relative overflow-x-clip w-screen flex justify-center">
       <motion.div
         initial={{
           x: "80%",

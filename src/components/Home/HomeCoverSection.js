@@ -7,13 +7,13 @@ import React from "react";
 import Tag from "../Elements/Tag";
 import styled from "styled-components";
 import { slug } from "github-slugger";
-import homeBanner from "@/public/home-banner.jpg";
+import homeBanner from "@/public/home-banner2.png";
 
 const HomeCoverSection = ({ blogs }) => {
   const shortedBlogs = shortBlogs(blogs);
   const blog = shortedBlogs[0];
   return (
-    <Container className="w-full inline-block ">
+    <Container className="sticky top-0 w-full inline-block ">
       <article className="flex flex-col items-start justify-end relative h-[85vh]">
         <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent from-0% via-dark/60 to-dark/90 z-0 " />
         <Image

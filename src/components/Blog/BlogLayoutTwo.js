@@ -5,10 +5,10 @@ import React from "react";
 
 const BlogLayoutTwo = ({ blog }) => {
   return (
-    <div className="flex flex-col items-center shadow-lg transition-all border-[2px] border- ease duration-300 border-slate-400/50 rounded-lg p-2 group bg-white">
+    <div className="flex flex-col items-center transition-all ease duration-300 rounded-lg p-2 group bg-white">
       <Link
         href={blog?.url}
-        className="h-full roundex-md overflow-hidden  rounded-md group-hover:rounded-none delay-200 "
+        className="h-full roundex-md overflow-hidden rounded-md group-hover:rounded-none delay-200 "
       >
         <Image
           src={blog?.image.filePath.replace("../public", "")}
