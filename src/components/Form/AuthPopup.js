@@ -6,6 +6,7 @@ import crossIcon from "@/public/crossIcon.svg";
 import { useDispatch } from "react-redux";
 import { setAuthForm } from "@/src/redux/slice/formSlice";
 import { motion } from "framer-motion";
+import aeroplaneGif from "@/public/airplane.gif";
 
 const AuthPopup = () => {
   const dispatch = useDispatch();
@@ -41,8 +42,17 @@ const AuthPopup = () => {
           />
         </button>
         <form className="w-full bg-transparent p-8 max-w-[500px] z-20">
-          <h1 className="text-xl mb-2">
-            🚀 Subscribe Fast, to get regular updates..
+          <h1 className="text-xl mb-2 flex">
+            Subscribe Fast, to get regular updates..
+            <span>
+              <Image
+                src={aeroplaneGif}
+                width={400}
+                height={400}
+                className="w-10 h-10 mix-blend-multiply"
+                alt="aeroplane gif"
+              />
+            </span>
           </h1>
           <div className="w-full flex flex-col gap-2">
             <label className="text-sm font-light" htmlFor="">

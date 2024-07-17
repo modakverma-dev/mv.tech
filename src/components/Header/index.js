@@ -102,18 +102,21 @@ const Header = () => {
             <SunIcon />
           </button>
         </nav>
-        <div className="flex gap-3">
+        <div className="flex gap-4">
           <a href="http://example.com" className="w-6 h-6">
-            <LinkedInIcon className=" mr-4 inline-block hover:scale-125 transition-all ease duration-300" />
+            <LinkedInIcon className=" inline-block hover:scale-125 transition-all ease duration-300" />
           </a>
           <a href="http://example.com" className="w-6 h-6">
-            <TwitterIcon className=" mr-4 inline-block hover:scale-125 transition-all ease duration-300" />
+            <TwitterIcon className="inline-block hover:scale-125 transition-all ease duration-300" />
+          </a>
+          <a
+            href="https://github.com/modakverma-dev"
+            className="w-6 h-6 bg-white rounded-full"
+          >
+            <GithubIcon className="inline-block hover:scale-125 transition-all ease duration-300 -translate-y-[1px] scale-[1.06]" />
           </a>
           <a href="http://example.com" className="w-6 h-6">
-            <GithubIcon className=" mr-4 inline-block hover:scale-125 transition-all ease duration-300" />
-          </a>
-          <a href="http://example.com" className="w-6 h-6">
-            <DribbbleIcon className=" mr-4 inline-block hover:scale-125 transition-all ease duration-300" />
+            <DribbbleIcon className=" nline-block hover:scale-125 transition-all ease duration-300" />
           </a>
         </div>
       </div>

@@ -23,25 +23,25 @@ const BlogLayoutTwo = ({ blog }) => {
       <div className="flex w-full flex-wrap gap-1 mt-2">
         {blog?.tags?.map((tag) => (
           <span
-            className="text-slate-700 uppercase text-sm rounded-md px-1 text-bold bg-white border-[2px] border-slate-400/50"
+            className="text-slate-700 uppercase text-xs rounded-md px-1 text-bold border-[2px] border-slate-400/50 bg-teal-300/30"
             key={tag}
           >
-            {tag}
+            #{tag}
           </span>
         ))}
         <Link href={blog?.url}>
           <h2 className="font-medium capitalize">
-            <span className="bg-gradient text-base !leading-tight">
+            <span className="bg-gradient text-base !leading-tight line-clamp-2 h-10 mt-2">
               {blog?.title}
             </span>
           </h2>
         </Link>
-        <div className="flex w-full items-center justify-between py-2">
-          <span className=" text-dark text-sm">
+        <div className="flex w-full items-center justify-between py-2 text-slate-500">
+          <span className="  text-sm">
             {format(new Date(blog?.publishedAt), "MMMM dd, yyyy")}
           </span>
           <span className="w-[2px] h-full bg-slate-300 rounded-lg" />
-          <span className="text-dark text-sm">{blog?.author}</span>
+          <span className=" text-sm">{blog?.author}</span>
         </div>
       </div>
     </div>

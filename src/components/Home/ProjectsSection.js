@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { GithubIcon } from "../Icons/Github";
 import Image from "next/image";
 import siteLink from "@/public/siteLink.gif";
+import { format } from "date-fns";
 
 const ProjectsSection = ({ projects }) => {
   const sortedRepos = projects.sort(
@@ -17,12 +18,11 @@ const ProjectsSection = ({ projects }) => {
       </h1>
       <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-10">
         {sortedRepos?.map((proj, index) => {
-          const updatedAt = new Date(proj?.updated_at).toLocaleDateString();
           return (
             <motion.div
               initial={{ y: "50%" }}
               whileInView={{ y: 0 }}
-              transition={{ delay: index * 0.13 }}
+              transition={{ duration: index * 0.08 }}
               viewport={{ once: true }}
               key={proj}
               className="bg-white shadow-md p-2 border-slate-400/30 rounded-lg border-2 relative"
@@ -71,7 +71,9 @@ const ProjectsSection = ({ projects }) => {
                   );
                 })}
               </div>
-              <span className="text-slate-600 text-sm">{updatedAt}</span>
+              <span className="text-slate-600 text-sm">
+                {format(new Date(proj?.updated_at), "MMMM dd, yyyy")}
+              </span>
             </motion.div>
           );
         })}
