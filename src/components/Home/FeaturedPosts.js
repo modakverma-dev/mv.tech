@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 const FeaturedPosts = ({ blogs }) => {
   const sortedBlogs = shortBlogs(blogs);
   const [count, setCount] = useState(0);
+  const [paused, setPaused] = useState(-1);
 
   useEffect(() => {
     const countInterval = setInterval(() => {
@@ -19,6 +20,12 @@ const FeaturedPosts = ({ blogs }) => {
     return () => clearInterval(countInterval);
   }, [sortedBlogs.length]);
 
+  const handlePauseBannerChange = (count) => {
+    setPaused(count);
+  };
+  const handleUnPauseBannerChange = () => {
+    setPaused(-1);
+  };
   return (
     <div className="bg-white relative overflow-x-clip w-screen flex justify-center">
       <motion.div
@@ -60,7 +67,11 @@ const FeaturedPosts = ({ blogs }) => {
           Featured Posts
         </h1>
         <div className="grid grid-cols-2 grid-rows-2 gap-1 md:gap-6 mt-8 h-[90vh] w-full">
-          <article className="col-span-1 row-span-2 rounded-md overflow-hidden w-full h-full ">
+          <article
+            onMouseEnter={() => handlePauseBannerChange(count)}
+            onMouseLeave={handleUnPauseBannerChange}
+            className="col-span-1 row-span-2 rounded-md overflow-hidden w-full h-full "
+          >
             <BlogLayoutOne count={count} blog={sortedBlogs[count]} />
           </article>
           <article className="col-span-1 row-span-1 w-full h-full rounded-md overflow-hidden ">

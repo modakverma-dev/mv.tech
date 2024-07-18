@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import LoginFormIllus from "../Icons/LoginFormIllus";
 import Image from "next/image";
 import crossIcon from "@/public/crossIcon.svg";
@@ -7,12 +7,45 @@ import { useDispatch } from "react-redux";
 import { setAuthForm } from "@/src/redux/slice/formSlice";
 import { motion } from "framer-motion";
 import aeroplaneGif from "@/public/airplane.gif";
+import { useForm } from "react-hook-form";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const AuthPopup = () => {
+  const supabase = createClientComponentClient();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [loading, setLoading] = useState(false);
+  const onSubmit = async (data) => {
+    const { name, email } = data;
+    try {
+      setLoading(true);
+      let { data, error } = await supabase.rpc("subscribe_user", {
+        name_text: name,
+        email_text: email,
+      });
+      if (error) console.error(error);
+      else {
+        if (data === true) {
+          dispatch(setAuthForm(false));
+          window.alert("Subscribed successfully!🥳");
+        } else {
+          window.alert("This account is already subscribed!");
+        }
+      }
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      console.log(err);
+    }
+  };
   const dispatch = useDispatch();
   const handleCloseModal = () => {
     dispatch(setAuthForm(false));
   };
+
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 z-50 ">
       <div
@@ -41,7 +74,10 @@ const AuthPopup = () => {
             alt="cross"
           />
         </button>
-        <form className="w-full bg-transparent p-8 max-w-[500px] z-20">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="w-full bg-transparent p-8 max-w-[500px] z-20"
+        >
           <h1 className="text-xl mb-2 flex">
             Subscribe Fast, to get regular updates..
             <span>
@@ -60,8 +96,9 @@ const AuthPopup = () => {
             </label>
             <input
               type="text"
+              {...register("name", { required: true, maxLength: 40 })}
               placeholder="Ex. John Doe"
-              className="text-sm font-light py-3 outline-none focus:outline-none border-[1.8px] shadow shadow-slate-200/50 border-slate-300 px-3 mb-4 focus:ring-4 ring-slate-400/40"
+              className="text-sm py-3.5 outline-none focus:outline-none border-[1.8px] shadow shadow-slate-200/50 border-slate-300 px-3 mb-4 focus:ring-4 focus:border-black focus:ring-slate-400/40"
             />
           </div>
           <div className="w-full flex flex-col gap-2">
@@ -69,13 +106,17 @@ const AuthPopup = () => {
               Email
             </label>
             <input
-              type="text"
+              type="email"
+              {...register("email", { required: true, maxLength: 80 })}
               placeholder="Ex. johndoe@gmail.com"
-              className="text-sm font-light py-3 outline-none focus:outline-none border-[1.8px] shadow shadow-slate-200/50 border-slate-300 px-3 mb-4 focus:ring-4 ring-slate-400/40"
+              className="text-sm py-3.5 outline-none focus:outline-none border-[1.8px] shadow shadow-slate-200/50 border-slate-300 px-3 mb-4 focus:ring-4 focus:border-black focus:ring-slate-400/40"
             />
           </div>
-          <button className="bg-black text-xl text-white w-full py-3 mt-2 border-2 border-black hover:bg-transparent hover:text-black transition-all ease duration-300 hover:shadow-lg">
-            Submit
+          <button
+            type="submit"
+            className="bg-black text-white w-full py-2.5 mt-2 border-2 border-black hover:bg-transparent hover:text-black transition-all ease duration-300 hover:shadow-lg text-md"
+          >
+            {loading ? "Subscribing..." : "Subscribe"}
           </button>
         </form>
       </motion.div>

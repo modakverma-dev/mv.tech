@@ -9,3 +9,7 @@ export const shortBlogs = (blogs) => {
       compareDesc(parseISO(a.publishedAt), parseISO(b.publishedAt))
     );
 };
+
+export const removeExtraSpaces = (inputString) => {
+  return inputString.replace(/^\s+|\s+$/g, "").replace(/\s+/g, " ");
+};

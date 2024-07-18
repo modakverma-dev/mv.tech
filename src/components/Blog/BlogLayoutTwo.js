@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import ViewDisplayer from "./ViewDisplayer";
 
 const BlogLayoutTwo = ({ blog }) => {
   return (
@@ -36,6 +37,9 @@ const BlogLayoutTwo = ({ blog }) => {
             </span>
           </h2>
         </Link>
+        <span>
+          <ViewDisplayer slug={blog?._raw.flattenedPath} />
+        </span>
         <div className="flex w-full items-center justify-between py-2 text-slate-500">
           <span className="  text-sm">
             {format(new Date(blog?.publishedAt), "MMMM dd, yyyy")}

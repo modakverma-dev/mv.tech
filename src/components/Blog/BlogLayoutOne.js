@@ -5,6 +5,7 @@ import Tag from "../Elements/Tag";
 import { format } from "date-fns";
 import { motion, AnimatePresence } from "framer-motion";
 import { slug } from "github-slugger";
+import ViewDisplayer from "./ViewDisplayer";
 
 const BlogLayoutOne = ({ blog, count }) => {
   return (
@@ -56,6 +57,7 @@ const BlogLayoutOne = ({ blog, count }) => {
                 </span>
               </h1>
             </Link>
+            <ViewDisplayer slug={blog?._raw.flattenedPath} />
             <span className="text-slate-200/80 text-sm font-light">
               {format(new Date(blog?.publishedAt), "MMMM dd, yyyy")}
             </span>

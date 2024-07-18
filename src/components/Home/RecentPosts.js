@@ -1,5 +1,4 @@
 import React from "react";
-import { allBlogs } from "@/.contentlayer/generated";
 import Link from "next/link";
 import { shortBlogs } from "@/src/utils";
 import BlogLayoutTwo from "../Blog/BlogLayoutTwo";
