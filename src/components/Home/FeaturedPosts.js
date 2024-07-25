@@ -84,17 +84,17 @@ const FeaturedPosts = ({ blogs }) => {
           <article
             onMouseEnter={() => handlePauseBannerChange(count)}
             onMouseLeave={handleUnPauseBannerChange}
-            className="col-span-1 row-span-2 rounded-md overflow-hidden w-full h-full "
+            className="col-span-1 row-span-2 rounded-2xl border-2 dark:border-slate-500 overflow-hidden w-full h-full "
           >
             <BlogLayoutOne count={count} blog={sortedBlogs[count]} />
           </article>
-          <article className="col-span-1 row-span-1 w-full h-full rounded-md overflow-hidden ">
+          <article className="col-span-1 row-span-1 w-full h-full rounded-2xl border-2 dark:border-slate-500 overflow-hidden ">
             <BlogLayoutOne
               count={count + 1}
               blog={sortedBlogs[(count + 1) % sortedBlogs.length]}
             />
           </article>
-          <article className="col-span-1 row-span-1 w-full h-full rounded-md overflow-hidden">
+          <article className="col-span-1 row-span-1 w-full h-full rounded-2xl border-2 dark:border-slate-500 overflow-hidden">
             <BlogLayoutOne
               count={count + 2}
               blog={sortedBlogs[(count + 3) % sortedBlogs.length]}

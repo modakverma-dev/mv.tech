@@ -10,7 +10,7 @@ import ViewDisplayer from "./ViewDisplayer";
 const BlogLayoutOne = ({ blog, count }) => {
   return (
     <AnimatePresence>
-      <div className="inline-block overflow-hidden relative bg-transparent h-full">
+      <div className="inline-block font-sans overflow-hidden relative bg-transparent w-full h-full">
         <motion.div
           key={blog?.url}
           initial={{
@@ -39,7 +39,7 @@ const BlogLayoutOne = ({ blog, count }) => {
             height={blog.image.height}
             className="h-full w-full object-center object-cover -z-10"
           />
-          <div className="w-full absolute bottom-0 p-8 md:p-8 z-20 text-light">
+          <div className="ease-linear group-hover:translate-y-2 w-full absolute bottom-0 p-8 md:p-8 z-20 text-light">
             <div className="flex flex-wrap gap-1">
               {blog?.tags?.map((tag) => (
                 <Tag
@@ -51,17 +51,17 @@ const BlogLayoutOne = ({ blog, count }) => {
               ))}
             </div>
             <Link href={blog?.url} className="mt-6">
-              <h1 className="font-medium capitalize text-xl my-3">
+              <h1 className="font-semibold line-clamp-3 capitalize text-3xl my-3">
                 <span className="bg-gradient-to-r from-slate-100/50 to-slate-100/40 bg-[length:0px_2px] hover:bg-[length:100%_2px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
                   {blog?.title}
                 </span>
               </h1>
             </Link>
             <ViewDisplayer slug={blog?._raw.flattenedPath} />
-            <span className="text-slate-200/80 text-sm font-light">
+            <span className="text-slate-200/80 text-sm font-base">
               {format(new Date(blog?.publishedAt), "MMMM dd, yyyy")}
             </span>
-            <p className="font-light text-sm text-slate-100">
+            <p className="font-medium text-sm text-slate-100">
               <span>Author:</span> {blog?.author}
             </p>
           </div>

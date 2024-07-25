@@ -57,7 +57,7 @@ const AuthPopup = () => {
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         transition={{ duration: 0.2 }}
-        className="absolute w-[70%] top-20 h-[500px] left-[15%] dark:text-white bg-white dark:bg-black shadow-md overflow-clip flex items-center justify-center border-[1px] border-slate-200/40 rounded-2xl margin-x-auto"
+        className="absolute w-[70%] top-20 h-[500px] left-[15%] dark:text-white bg-white dark:bg-neutral-700 shadow-md overflow-clip flex items-center justify-center border-[1px] border-slate-200/40 rounded-2xl margin-x-auto"
       >
         <LoginFormIllus
           color="#EDF7FA"
