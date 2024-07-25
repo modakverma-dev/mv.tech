@@ -6,7 +6,6 @@ import { GithubIcon } from "../Icons/Github";
 import Image from "next/image";
 import siteLink from "@/public/siteLink.gif";
 import { format } from "date-fns";
-import MovingBorder from "../Cards/MovingBorder";
 import MovingBorderContainer from "../Cards/MovingBorder";
 
 const ProjectsSection = ({ projects }) => {
@@ -63,7 +62,7 @@ const ProjectsSection = ({ projects }) => {
                   )}
                 </div>
                 <div className="w-full h-[1.8px] bg-slate-200/50 my-3" />
-                <p className="text-slate-700/80 text-sm font-light mb-4 dark:text-slate-300/60 ">
+                <p className="text-slate-700/80 text-sm font-normal mb-4 dark:text-slate-300/60 ">
                   {proj?.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -78,9 +77,9 @@ const ProjectsSection = ({ projects }) => {
                     );
                   })}
                 </div>
-                <span className="text-slate-600 text-sm">
+                <p className="text-slate-600 text-sm text-end w-full pt-5">
                   {format(new Date(proj?.updated_at), "MMMM dd, yyyy")}
-                </span>
+                </p>
               </div>
             </MovingBorderContainer>
           );

@@ -10,7 +10,7 @@ const Footer = () => {
     // handle Subscribe
   };
   return (
-    <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8 bg-black flex flex-col items-center">
+    <footer className="bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8 bg-black flex flex-col items-center">
       <div className="max-w-7xl mx-auto text-center">
         <h3 className="text-xl sm:text-4xl font-semibold text-slate-500/70 mb-4">
           Interesting Stories | Updates | Guides
