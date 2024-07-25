@@ -49,18 +49,18 @@ const Header = () => {
     <header
       className={cx(
         "w-full  px-10 flex items-center justify-between fixed top-0 lef-0 right-0 z-40 bg-transparent",
-        nav ? "text-black shadow-lg" : "text-white"
+        nav ? "text-black shadow-lg dark:text-white" : "text-white"
       )}
     >
       {/* scroll bg-animation */}
       <div
         className={cx(
           nav && "opacity-100 border-slate-200/20 border-[1px]",
-          "opacity-0 transition duration-300 absolute inset-0 w-full h-full bg-white z-10"
+          "opacity-0 transition duration-300 absolute inset-0 w-full h-full bg-white dark:bg-black z-10"
         )}
       >
         <div
-          className="h-[4px] -top-[2px] bg-black absolute"
+          className="h-[4px] -top-[2px] bg-blue-400 absolute"
           style={{ width: `${scrollPosition}%` }}
         ></div>
       </div>

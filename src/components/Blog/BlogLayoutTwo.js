@@ -6,7 +6,7 @@ import ViewDisplayer from "./ViewDisplayer";
 
 const BlogLayoutTwo = ({ blog }) => {
   return (
-    <div className="flex flex-col items-center transition-all ease duration-300 rounded-lg p-2 group bg-white">
+    <div className=" flex flex-col items-center transition-all ease duration-300 rounded-lg p-2 group bg-white">
       <Link
         href={blog?.url}
         className="h-full roundex-md overflow-hidden rounded-md group-hover:rounded-none delay-200 "

@@ -3,6 +3,7 @@ import React from "react";
 import { TwitterIcon } from "../Icons/Twitter";
 import { GithubIcon } from "../Icons/Github";
 import LinkedInIcon from "../Icons/LinkedIn";
+import { Input } from "../Cards/Input";
 
 const Footer = () => {
   const handleSubmit = () => {
@@ -11,18 +12,18 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8 bg-black flex flex-col items-center">
       <div className="max-w-7xl mx-auto text-center">
-        <h3 className="text-2xl sm:text-xl font-light mb-4">
+        <h3 className="text-xl sm:text-4xl font-semibold text-slate-500/70 mb-4">
           Interesting Stories | Updates | Guides
         </h3>
-        <p className="mb-6 text-slate-200/80 text-sm font-extralight font-playwrite">
+        <p className="mb-6 text-blue-500/80 text-lg font-normal ">
           Subscribe to learn about new technology and updates. Join over 5000+
           members community to stay up to date with the latest news.
         </p>
 
-        <div className="grid grid-cols-3 mb-10 border-b-[1.2px] border-slate-200/40 pb-5">
+        <div className="grid grid-cols-3 mb-10 border-b-[1.2px] border-slate-200/20 pb-5">
           <div className="flex flex-col gap-1 text-start">
-            <span className="uppercase font-light text-md">Content</span>
-            <ul className="font-extralight text-sm text-slate-300/80">
+            <span className="uppercase font-medium  text-md">Content</span>
+            <ul className="font-normal text-sm text-slate-300/70">
               <li className="my-2 cursor-pointer hover:text-white transition">
                 Home
               </li>
@@ -38,8 +39,8 @@ const Footer = () => {
             </ul>
           </div>
           <div className="flex flex-col gap-1 text-start">
-            <span className="uppercase font-light text-md">Legal</span>
-            <ul className="font-extralight text-sm text-slate-300/80">
+            <span className="uppercase font-medium  text-md">Legal</span>
+            <ul className="font-normal text-sm text-slate-300/70">
               <li className="my-2 cursor-pointer hover:text-white transition">
                 Condiciones generales
               </li>
@@ -52,8 +53,8 @@ const Footer = () => {
             </ul>
           </div>
           <div className="flex flex-col gap-1 text-start">
-            <span className="uppercase font-light text-md">Contact</span>
-            <ul className="font-extralight text-sm text-slate-300/80">
+            <span className="uppercase font-medium text-md">Contact</span>
+            <ul className="font-normal text-sm text-slate-300/70">
               <li className="my-2 cursor-pointer hover:text-white transition">
                 <a href="tel:+91 8091775655">+91 8091775655</a>
               </li>
@@ -81,22 +82,23 @@ const Footer = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row justify-center items-center"
+          className="flex flex-col sm:flex-row justify-center items-center gap-2"
         >
-          <input
-            type="email"
-            placeholder="enter your email"
-            className="w-full sm:w-auto px-4 py-1 bg-transparent border-slate-600 border focus:outline-none focus:ring-0 font-light text-sm bg rounded-s-sm"
+          <Input
+            id="Enter you Email"
+            placeholder="Eg:Johd@example.com"
+            type="text"
+            className="w-full"
           />
           <button
             type="submit"
-            className="w-full sm:w-auto bg-white px-4 rounded-e-sm border-white border py-1 transition duration-200 ease-in-out text-black text-sm hover:bg-slate-200"
+            className="w-full font-semibold text-base sm:w-auto bg-white px-4 rounded-lg border-white border py-2 transition duration-200 ease-in-out text-black hover:bg-slate-200"
           >
             Subscribe
           </button>
         </form>
       </div>
-      <p className="mt-6 text-slate-200/80 text-sm font-extralight self-center">
+      <p className="mt-6 text-slate-200/80 text-sm font-medium self-center">
         © 2024 MV.TECH. All rights reserved. Made with ❤ by{" "}
         <a
           target="_blank"

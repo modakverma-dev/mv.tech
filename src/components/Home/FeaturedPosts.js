@@ -27,8 +27,8 @@ const FeaturedPosts = ({ blogs }) => {
     setPaused(-1);
   };
   return (
-    <div className="bg-white relative overflow-x-clip w-screen flex justify-center">
-      <motion.div
+    <div className="bg-white dark:bg-black relative overflow-x-clip w-screen flex justify-center pb-20">
+      {/* <motion.div
         initial={{
           x: "80%",
         }}
@@ -61,11 +61,25 @@ const FeaturedPosts = ({ blogs }) => {
           alt="illustration"
           className="z-10 w-full h-full"
         />
-      </motion.div>
+      </motion.div> */}
       <section className="md:max-w-[1000px] w-full mt-10 px-5 flex flex-col items-center justify-center relative">
-        <h1 className="w-full inline-block font-semibold capitalize text-4xl font-playwrite">
-          Featured Posts
-        </h1>
+        <motion.div
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0,
+            duration: 0.65,
+            ease: "easeInOut",
+          }}
+        >
+          <h1 className="relative z-10 text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-blue-600  text-center font-sans font-bold">
+            Featured Posts
+          </h1>
+          <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
+            Discover our handpicked favorites – top reads you won't want to
+            miss!
+          </p>
+        </motion.div>
         <div className="grid grid-cols-2 grid-rows-2 gap-1 md:gap-6 mt-8 h-[90vh] w-full">
           <article
             onMouseEnter={() => handlePauseBannerChange(count)}

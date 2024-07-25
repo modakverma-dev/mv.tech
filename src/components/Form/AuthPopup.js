@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import aeroplaneGif from "@/public/airplane.gif";
 import { useForm } from "react-hook-form";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Input } from "../Cards/Input";
 
 const AuthPopup = () => {
   const supabase = createClientComponentClient();
@@ -56,14 +57,14 @@ const AuthPopup = () => {
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         transition={{ duration: 0.2 }}
-        className="absolute w-[70%] top-20 h-[500px] left-[15%] bg-white shadow-md overflow-clip flex items-center justify-center border-[1px] border-slate-200 margin-x-auto"
+        className="absolute w-[70%] top-20 h-[500px] left-[15%] dark:text-white bg-white dark:bg-black shadow-md overflow-clip flex items-center justify-center border-[1px] border-slate-200/40 rounded-2xl margin-x-auto"
       >
         <LoginFormIllus
           color="#EDF7FA"
           className="absolute -top-10 -right-10 z-10"
         />
-        <div className=" absolute -left-48 -bottom-48 border-[#EDF7FA] rounded-full border-[100px] w-[600px] h-[600px] z-10" />
-        <div className="absolute -left-12 -bottom-12 z-0 bg-[#EDF7FA] rounded-full w-[300px] h-[300px]" />
+        <div className=" absolute -left-48 -bottom-48 border-[#EDF7FA] rounded-full border-[100px] w-[600px] h-[600px] z-10 dark:border-slate-300" />
+        <div className="absolute -left-12 -bottom-12 z-0 bg-[#EDF7FA] rounded-full w-[300px] h-[300px] dark:bg-slate-400" />
 
         <button onClick={handleCloseModal} className="z-20">
           <Image
@@ -78,9 +79,9 @@ const AuthPopup = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full bg-transparent p-8 max-w-[500px] z-20"
         >
-          <h1 className="text-xl mb-2 flex">
+          <h1 className=" mb-3 text-lg md:text-xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-blue-600  text-center font-sans font-medium">
             Subscribe Fast, to get regular updates..
-            <span>
+            <span className="dark:hidden">
               <Image
                 src={aeroplaneGif}
                 width={400}
@@ -90,31 +91,37 @@ const AuthPopup = () => {
               />
             </span>
           </h1>
-          <div className="w-full flex flex-col gap-2">
-            <label className="text-sm font-light" htmlFor="">
+          <div className="w-full flex flex-col gap-2 mb-4">
+            <label
+              className="text-md font-medium dark:text-blue-500"
+              htmlFor=""
+            >
               Name
             </label>
-            <input
+            <Input
               type="text"
               {...register("name", { required: true, maxLength: 40 })}
               placeholder="Ex. John Doe"
-              className="text-sm py-3.5 outline-none focus:outline-none border-[1.8px] shadow shadow-slate-200/50 border-slate-300 px-3 mb-4 focus:ring-4 focus:border-black focus:ring-slate-400/40"
+              className="py-6"
             />
           </div>
-          <div className="w-full flex flex-col gap-2">
-            <label className="text-sm font-light" htmlFor="">
+          <div className="w-full flex flex-col gap-2 mb-4">
+            <label
+              className="text-md font-medium dark:text-blue-500"
+              htmlFor=""
+            >
               Email
             </label>
-            <input
+            <Input
               type="email"
               {...register("email", { required: true, maxLength: 80 })}
               placeholder="Ex. johndoe@gmail.com"
-              className="text-sm py-3.5 outline-none focus:outline-none border-[1.8px] shadow shadow-slate-200/50 border-slate-300 px-3 mb-4 focus:ring-4 focus:border-black focus:ring-slate-400/40"
+              className="py-6"
             />
           </div>
           <button
             type="submit"
-            className="bg-black text-white w-full py-2.5 mt-2 border-2 border-black hover:bg-transparent hover:text-black transition-all ease duration-300 hover:shadow-lg text-md"
+            className="bg-black rounded-lg text-white w-full py-2.5 mt-2 border-2 border-black dark:bg-white dark:text-black dark:border-white dark:shadow-md transition-all ease duration-300 hover:shadow-lg text-lg font-semibold"
           >
             {loading ? "Subscribing..." : "Subscribe"}
           </button>

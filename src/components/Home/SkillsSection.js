@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const SkillsSection = () => {
   return (
-    <div className="bg-white p-10 w-full flex flex-col items-center overflow-hidden relative ">
+    <div className="bg-white dark:bg-black p-10 w-full flex flex-col items-center overflow-hidden relative ">
       <h1 className="w-full text-center pb-10 text-5xl font-semibold uppercase text-slate-200 font-mono">
         Skills
       </h1>
