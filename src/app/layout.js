@@ -5,6 +5,7 @@ import Header from "@/src/components/Header";
 import Footer from "../components/Footer";
 import ScrollToTopButton from "../components/Elements/ScrollToTop";
 import StoreProvider from "../redux/provider";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,8 +27,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={cx(inter.variable, manrope.variable, "font-dosis bg-light")}
+        className={cx(
+          inter.variable,
+          manrope.variable,
+          "font-dosis bg-light dark:bg-black"
+        )}
       >
+        <Script id={1}>
+          {`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}`}
+        </Script>
         <StoreProvider>
           <Header />
           {children}

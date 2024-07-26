@@ -6,7 +6,7 @@ import { GithubIcon } from "../Icons/Github";
 import Image from "next/image";
 import siteLink from "@/public/siteLink.gif";
 import { format } from "date-fns";
-import MovingBorderContainer from "../Cards/MovingBorder";
+import MovingBorderContainer from "../AceternityComponents/MovingBorder";
 
 const ProjectsSection = ({ projects }) => {
   const sortedRepos = projects.sort(
@@ -26,13 +26,13 @@ const ProjectsSection = ({ projects }) => {
       >
         Fun Projects
       </motion.h1>
-      <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 z-10 p-10">
+      <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 z-10 p-10">
         {sortedRepos?.map((proj, index) => {
           return (
             <MovingBorderContainer duration={2000} key={index}>
               <div
                 key={index}
-                className="bg-white shadow-md p-2 border-slate-400/30 rounded-[1.75rem] border-2 relative w-full h-full text-black dark:bg-black dark:text-white"
+                className="bg-white p-2 border-slate-400/30 rounded-[1.75rem] border-2 relative w-full h-full text-black dark:bg-neutral-900 shadow-lg dark:shadow-none dark:text-white"
               >
                 <h1 className="font-medium text-lg mb-2">{proj?.name} </h1>
                 <div className=" absolute top-1 right-1 flex items-center gap-2">

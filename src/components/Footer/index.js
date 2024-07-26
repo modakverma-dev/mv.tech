@@ -3,14 +3,14 @@ import React from "react";
 import { TwitterIcon } from "../Icons/Twitter";
 import { GithubIcon } from "../Icons/Github";
 import LinkedInIcon from "../Icons/LinkedIn";
-import { Input } from "../Cards/Input";
+import { Input } from "../AceternityComponents/Input";
 
 const Footer = () => {
   const handleSubmit = () => {
     // handle Subscribe
   };
   return (
-    <footer className="bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8 bg-black flex flex-col items-center">
+    <footer className="bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black flex flex-col items-center">
       <div className="max-w-7xl mx-auto text-center">
         <h3 className="text-xl sm:text-4xl font-semibold text-slate-500/70 mb-4">
           Interesting Stories | Updates | Guides
@@ -20,48 +20,54 @@ const Footer = () => {
           members community to stay up to date with the latest news.
         </p>
 
-        <div className="grid grid-cols-3 mb-10 border-b-[1.2px] border-slate-200/20 pb-5">
-          <div className="flex flex-col gap-1 text-start">
-            <span className="uppercase font-medium  text-md">Content</span>
-            <ul className="font-normal text-sm text-slate-300/70">
-              <li className="my-2 cursor-pointer hover:text-white transition">
+        <div className="grid grid-cols-3 mb-10 border-b-[1.2px] border-slate-400/20 pb-5">
+          <div className="flex flex-col gap-1 text-start font-sans">
+            <span className="uppercase font-semibold dark:text-white text-black text-md">
+              Content
+            </span>
+            <ul className="font-medium text-sm dark:text-slate-300/70 text-slate-800">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 Home
               </li>
-              <li className="my-2 cursor-pointer hover:text-white transition">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 About
               </li>
-              <li className="my-2 cursor-pointer hover:text-white transition">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 Categories
               </li>
-              <li className="my-2 cursor-pointer hover:text-white transition">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 Blogs
               </li>
             </ul>
           </div>
-          <div className="flex flex-col gap-1 text-start">
-            <span className="uppercase font-medium  text-md">Legal</span>
-            <ul className="font-normal text-sm text-slate-300/70">
-              <li className="my-2 cursor-pointer hover:text-white transition">
+          <div className="flex flex-col gap-1 text-start font-sans">
+            <span className="uppercase font-semibold text-md dark:text-white text-black">
+              Legal
+            </span>
+            <ul className="font-medium text-sm dark:text-slate-300/70 text-slate-800">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 Condiciones generales
               </li>
-              <li className="my-2 cursor-pointer hover:text-white transition">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 Política de Cookies
               </li>
-              <li className="my-2 cursor-pointer hover:text-white transition">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 Prensa
               </li>
             </ul>
           </div>
-          <div className="flex flex-col gap-1 text-start">
-            <span className="uppercase font-medium text-md">Contact</span>
-            <ul className="font-normal text-sm text-slate-300/70">
-              <li className="my-2 cursor-pointer hover:text-white transition">
+          <div className="flex flex-col gap-1 text-start font-sans">
+            <span className="uppercase font-semibold text-md dark:text-white text-black">
+              Contact
+            </span>
+            <ul className="font-medium text-sm dark:text-slate-300/70 text-slate-800">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 <a href="tel:+91 8091775655">+91 8091775655</a>
               </li>
-              <li className="my-2 cursor-pointer hover:text-white transition">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 <a href="https://wa.me/8091775655">Whatsapp</a>
               </li>
-              <li className="my-2 cursor-pointer hover:text-white transition">
+              <li className="my-2 cursor-pointer hover:text-black dark:hover:text-white transition">
                 <a href="mailto:modakverma.dev@gmail.com">Mail</a>
               </li>
             </ul>
@@ -92,13 +98,13 @@ const Footer = () => {
           />
           <button
             type="submit"
-            className="w-full font-semibold text-base sm:w-auto bg-white px-4 rounded-lg border-white border py-2 transition duration-200 ease-in-out text-black hover:bg-slate-200"
+            className="w-full font-semibold text-base sm:w-auto bg-slate-200/60 dark:bg-white px-4 rounded-lg border-white border py-2 transition duration-200 ease-in-out text-black hover:bg-slate-200"
           >
             Subscribe
           </button>
         </form>
       </div>
-      <p className="mt-6 text-slate-200/80 text-sm font-medium self-center">
+      <p className="mt-6 text-slate-700 font-sans dark:text-slate-200/80 text-sm font-medium self-center">
         © 2024 MV.TECH. All rights reserved. Made with ❤ by{" "}
         <a
           target="_blank"

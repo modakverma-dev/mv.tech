@@ -8,12 +8,13 @@ import { TwitterIcon } from "../Icons/Twitter";
 import { GithubIcon } from "../Icons/Github";
 import { DribbbleIcon } from "../Icons/Medium";
 import { SunIcon } from "../Icons/SunIcon";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setAuthForm } from "@/src/redux/slice/formSlice";
+import { useThemeSwitch } from "../Hooks/useThemeSwitcher";
 
 const Header = () => {
+  const [mode, setMode] = useThemeSwitch();
   const dispatch = useDispatch();
-  const {} = useSelector((state) => state.formSlice.showAuthForm);
   const [nav, setNav] = useState(false);
   const changeBackground = () => {
     if (window.scrollY >= 40) {
@@ -98,7 +99,11 @@ const Header = () => {
           >
             Contact
           </Link>
-          <button>
+          <button
+            onClick={() => {
+              setMode(mode === "light" ? "dark" : "light");
+            }}
+          >
             <SunIcon />
           </button>
         </nav>

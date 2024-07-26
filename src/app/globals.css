@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  transition: background 2s;
 }
 
 h1 > a > .icon.icon-link:before,

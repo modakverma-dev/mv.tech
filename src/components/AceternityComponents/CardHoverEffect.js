@@ -66,7 +66,7 @@ const CardHoverEffect = ({ items, className }) => {
             <div className="flex flex-wrap w-full gap-1 pt-3">
               {item?.tags?.map((tag) => (
                 <span
-                  className="p-1 uppercase text-xs rounded-md px-1 text-bold border-[2px] border-slate-400/50 bg-teal-300/30 text-white"
+                  className="p-1 uppercase text-xs rounded-md px-1 text-bold border-[2px] border-slate-400/50 bg-teal-300/30 text-black dark:text-white"
                   key={tag}
                 >
                   #{tag}
@@ -93,7 +93,7 @@ export const Card = ({ className, children }) => {
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full  overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full  overflow-hidden bg-neutral-200 backdrop-blur-lg  border border-neutral-400 dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 dark:bg-neutral-900",
         className
       )}
     >
@@ -107,7 +107,7 @@ export const CardTitle = ({ className, children }) => {
   return (
     <h4
       className={cn(
-        "text-zinc-100 font-semibold tracking-wide mt-4",
+        "text-zinc-100  font-semibold tracking-wide mt-4",
         className
       )}
     >
@@ -119,7 +119,7 @@ export const CardDescription = ({ className, children }) => {
   return (
     <p
       className={cn(
-        "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
+        "mt-8 text-black dark:text-zinc-400 tracking-wide leading-relaxed text-sm",
         className
       )}
     >

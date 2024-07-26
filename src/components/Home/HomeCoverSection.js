@@ -7,15 +7,31 @@ import React from "react";
 import Tag from "../Elements/Tag";
 import styled from "styled-components";
 import { slug } from "github-slugger";
-import homeBanner from "@/public/home-banner2.png";
+import homeBanner from "@/public/home-banner.jpg";
+import TypewriteEffectSmooth from "../AceternityComponents/TypewriteEffectSmooth";
 
 const HomeCoverSection = ({ blogs }) => {
   const shortedBlogs = shortBlogs(blogs);
   const blog = shortedBlogs[0];
+  const words = [
+    {
+      text: "Welcome",
+    },
+    {
+      text: "to",
+    },
+    {
+      text: "MV.TECH",
+      className: "text-blue-500 dark:text-blue-400",
+    },
+    {
+      text: "🤖",
+    },
+  ];
   return (
     <Container className="sticky top-0 w-full inline-block ">
-      <article className="flex flex-col items-start justify-end relative h-[85vh]">
-        <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent from-0% via-dark/60 to-dark/90 z-0 " />
+      <article className="flex flex-col items-start justify-end relative h-[95vh]">
+        <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent from-0% via-dark/70 to-dark z-0 " />
         <Image
           src={homeBanner}
           placeholder="blur"
@@ -24,6 +40,9 @@ const HomeCoverSection = ({ blogs }) => {
           fill
           className="h-full w-full object-center object-cover -z-10"
         />
+        <div className="w-full items-center flex justify-center z-20 ">
+          <TypewriteEffectSmooth words={words} />
+        </div>
         <div className="w-3/4 flex gap-5 p-8 md:p-12 items-start justify-start z-0 text-light">
           <div className="flex flex-col gap-2 border-slate-200/70 shadow-xl border-2 h-full w-[350px] mb-5 -z-10 rounded-xl overflow-hidden">
             <Image
@@ -36,6 +55,7 @@ const HomeCoverSection = ({ blogs }) => {
               className="h-full w-full object-center"
             />
           </div>
+
           <div className="flex-1">
             <Link href={blog?.url}>
               <h1 className="font-bold capitalize text-4xl">

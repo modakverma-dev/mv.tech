@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import aeroplaneGif from "@/public/airplane.gif";
 import { useForm } from "react-hook-form";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Input } from "../Cards/Input";
+import { Input } from "../AceternityComponents/Input";
 
 const AuthPopup = () => {
   const supabase = createClientComponentClient();
